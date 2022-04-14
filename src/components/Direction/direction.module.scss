@@ -1,0 +1,51 @@
+.upArrow{
+  transform: rotate(90deg);
+}
+
+.downArrow{
+  transform: rotate(90deg);
+}
+
+.upArrow,
+.downArrow {
+  display: inline-flex;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  background-color: gray;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.upArrow::before,
+.downArrow::before {
+  position: absolute;
+  display: inline-flex;
+  border: 6px solid transparent;
+  content: '';
+}
+
+.upArrow::before {
+  top: 4px;
+  left: 0;
+  border-right: 6px solid white;
+}
+
+.downArrow::before {
+  top: 4px;
+  right: 0;
+  border-left: 6px solid white;
+}
+
+.upArrow:hover,
+.downArrow:hover {
+  background-color: lightgray;
+}
+
+.upArrow:hover:before {
+  border-right: 6px solid gray;
+}
+
+.downArrow:hover:before {
+  border-left: 6px solid gray;
+}
