@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import styles from './table.module.scss';
 import Lines from "./Lines";
 import Filter from "../Filter";
 import { useSearchedLines } from "../hooks/sortedTable";
@@ -26,20 +25,23 @@ const Table = () => {
 
     const sortedAndSearchedLines = useSearchedLines({ lines, sort, query } );
 
-    return (
-        <div style={{display: 'flex'}}>
-            <table className={styles.table}>
-                <Lines lines={sortedAndSearchedLines} />
-            </table>
-            <div className="sorting-container">
-                <Filter
-                    filter={filter}
-                    setFilter={setFilter}
-                />
-                <Direction sort={sort}/>
-            </div>
-        </div>
 
+    return (
+        <div>
+            <div style={{display: 'flex'}}>
+                    <Lines
+                        lines={sortedAndSearchedLines}
+                    />
+                <div className="sorting-container">
+                    <Filter
+                        filter={filter}
+                        setFilter={setFilter}
+                    />
+                    <Direction sort={sort}/>
+                </div>
+            </div>
+            {}
+        </div>
     );
 };
 

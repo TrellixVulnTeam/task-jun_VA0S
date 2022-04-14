@@ -8,13 +8,8 @@ interface IDirectionProps {
 const Direction = ({ sort }: IDirectionProps) => {
     const [direction, setDirection] = useState<boolean>(true);
 
-    const clickHandler = () => {
-        setDirection((state:boolean) => !state)
-    }
-
     return (
         <div
-            onClick={() => clickHandler()}
             className={sort === 'desc' ? styles.downArrow : styles.upArrow}
          >
         </div>
