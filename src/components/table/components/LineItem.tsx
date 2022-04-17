@@ -1,4 +1,4 @@
-import React, {SetStateAction} from 'react';
+import React from 'react';
 import { ILines } from "../Table";
 
 interface IClickedLines {
@@ -9,7 +9,8 @@ interface IClickedLines {
 const LineItem = ({ line, onClick }: IClickedLines) => {
     return (
             <tr
-                onClick={() => onClick}
+                style={{cursor: 'pointer'}}
+                onClick={onClick}
                 key={line.id}
             >
                 <td>{line.name}</td>

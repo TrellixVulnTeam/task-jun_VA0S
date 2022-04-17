@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import Lines from "./Lines";
 import Filter from "../Filter";
-import { useSearchedLines } from "../hooks/sortedTable";
+import { useSearchedLines } from "../hooks/useSortedTable";
 import Direction from "../Direction/Direction";
+import AddLines from "./AddLines/AddLines";
 
 export interface ILines {
     name: string;
     salary: number;
     bonus: number;
     supervisor: string;
-    id: number;
+    id?: number;
 }
 
 const Table = () => {
@@ -24,6 +25,15 @@ const Table = () => {
     const { sort, query } = filter;
 
     const sortedAndSearchedLines = useSearchedLines({ lines, sort, query } );
+
+    const addLines = (item:ILines) => {
+        setLines((state) => [...state, item])
+    }
+
+    const [checkButton, setCheckButton] = useState<boolean>(false);
+    const showAddedTable = () => {
+        setCheckButton((state) => !state)
+    }
 
 
     return (
@@ -40,7 +50,10 @@ const Table = () => {
                     <Direction sort={sort}/>
                 </div>
             </div>
-            {}
+            {checkButton
+                ? <AddLines addLines={addLines} hideTable={showAddedTable}/>
+                : <button type="submit" onClick={() => showAddedTable()}>Добавить поле</button>
+            }
         </div>
     );
 };

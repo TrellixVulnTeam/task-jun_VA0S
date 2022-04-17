@@ -9,9 +9,11 @@ interface ILinesProps {
 }
 
 const Lines: FC <ILinesProps> = ({ lines }) => {
-    const [currentLines, setCurrentLines] = useState<ILines[]>([])
+    const [currentLines, setCurrentLines] = useState<ILines[]>([]);
 
     const showLines = (line:ILines) => {
+        if (currentLines.some((item) => item.id === line.id)) return;
+
         setCurrentLines((state) => [...state, line])
     }
 
@@ -23,6 +25,7 @@ const Lines: FC <ILinesProps> = ({ lines }) => {
                     <LineItem key={line.id} line={line} onClick={() => showLines(line)} />
                 ))}
             </table>
+
             <table>
                 {currentLines.map((line) => (
                     <LineItem key={line.id} line={line} />
