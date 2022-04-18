@@ -9,7 +9,6 @@ interface InputsProps {
 
 const InputAdded: FC <InputsProps> = ({ setInput }) => {
     const [value, dispatch] = useReducer(reducer, initialState);
-    // const [value, setValue] = useState<ILines | null>(null);
 
     if(value) {
         setInput(value)
@@ -22,14 +21,16 @@ const InputAdded: FC <InputsProps> = ({ setInput }) => {
                     {input.text}
                     <div>
                         <input
-                            type="text"
+                            type='text'
                             onChange={(event) =>
-                                dispatch({type: input.type, payload: event.target.value})
-                        }
+                                dispatch({
+                                    type: input.type,
+                                    payload: input.isNumber ?+event.target.value : event.target.value
+                                })}
                         />
                     </div>
                 </label>
-            ))}
+            ))}Ы
         </div>
     );
 };

@@ -1,14 +1,8 @@
-import {InputsAction, InputsActionTypes} from "../table/AddLines/store/types";
-
-interface InputsProps {
-    text: string;
-    type: InputsAction;
-    id: number;
-}
+import { InputsActionTypes } from "../table/AddLines/store/types";
 
 export const inputs = [
-    {text: "Имя", type: InputsActionTypes.name, id: 1},
-    {text: "Сумма", type: InputsActionTypes.salary, id: 2},
-    {text: "Бонус", type: InputsActionTypes.bonus, id: 3},
-    {text: "Псевдоним", type: InputsActionTypes.supervisor, id: 4},
+    {text: "Имя", type: InputsActionTypes.name, isNumber: false, id: 1},
+    {text: "Сумма", type: InputsActionTypes.salary, isNumber: true, id: 2},
+    {text: "Бонус", type: InputsActionTypes.bonus, isNumber: true, id: 3},
+    {text: "Псевдоним", type: InputsActionTypes.supervisor, isNumber: false, id: 4},
 ]

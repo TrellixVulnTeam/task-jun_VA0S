@@ -10,15 +10,16 @@ export const initialState:InitialProps = {
 }
 
 export function reducer(state: InitialProps, action: InputsAction): InitialProps{
+    console.log(action.payload)
     switch (action.type){
         case InputsActionTypes.name:
-            return {...state, name: action.payload};
+            return { ...state, name: action.payload } ;
         case InputsActionTypes.salary:
-            return {...state, salary: action.payload};
+            return { ...state, salary: action.payload };
         case InputsActionTypes.bonus:
-            return {...state, bonus: action.payload};
+            return { ...state, bonus: action.payload };
         case InputsActionTypes.supervisor:
-            return {...state, supervisor: action.payload};
+            return { ...state, supervisor: action.payload };
         default:
             return state;
     }

@@ -32,5 +32,5 @@ interface InputSupervisorAction {
     payload: string;
 }
 
-export type InputsAction = InputNameAction | InputSalaryAction | InputBonusAction | InputSupervisorAction
+export type InputsAction = InputNameAction | InputSalaryAction | InputBonusAction | InputSupervisorAction;
 
