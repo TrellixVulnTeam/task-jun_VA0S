@@ -1,14 +1,15 @@
-import React, { Dispatch, FC, SetStateAction, useReducer, useState } from 'react';
-import { inputs } from "../../consts/consts";
+import React, { Dispatch, FC, SetStateAction, useReducer } from 'react';
+import { inputs } from "../../../utils/consts/consts";
 import { ILines } from "../Table";
-import { initialState, reducer } from "./store/inputsReducer";
+import { initialState, reducer } from "../../../store/inputsReducer";
+import {InitialProps, InputsAction} from "../../../store/types";
 
 interface InputsProps {
     setInput: Dispatch<SetStateAction<ILines>>
 }
 
 const InputAdded: FC <InputsProps> = ({ setInput }) => {
-    const [value, dispatch] = useReducer(reducer, initialState);
+    const [value, dispatch] = useReducer<React.Reducer<InitialProps, InputsAction>>(reducer, initialState);
 
     if(value) {
         setInput(value)
@@ -21,16 +22,16 @@ const InputAdded: FC <InputsProps> = ({ setInput }) => {
                     {input.text}
                     <div>
                         <input
-                            type='text'
+                            type={input.isNumber ? 'number' : 'text'}
                             onChange={(event) =>
-                                dispatch({
-                                    type: input.type,
-                                    payload: input.isNumber ?+event.target.value : event.target.value
-                                })}
+                                dispatch(( => {
+
+                                })
+                            }
                         />
                     </div>
                 </label>
-            ))}Ы
+            ))}
         </div>
     );
 };

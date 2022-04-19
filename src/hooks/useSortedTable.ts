@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { ILines } from "../table/Table";
+import { ILines } from "../components/table/Table";
 
 interface ISortedAndSearchedLines {
     lines: ILines[];

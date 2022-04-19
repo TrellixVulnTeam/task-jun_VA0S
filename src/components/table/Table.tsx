@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Lines from "./Lines";
 import Filter from "../Filter";
-import { useSearchedLines } from "../hooks/useSortedTable";
-import Direction from "../Direction/Direction";
-import AddLines from "./AddLines/AddLines";
+import { useSearchedLines } from "../../hooks/useSortedTable";
+import Direction from "../direction/Direction";
+import AddLines from "./addLines/AddLines";
 
 export interface ILines {
     name: string;

@@ -7,10 +7,10 @@ export const initialState:InitialProps = {
     salary: 0,
     bonus: 0,
     supervisor: '',
+    isNumber: null,
 }
 
 export function reducer(state: InitialProps, action: InputsAction): InitialProps{
-    console.log(action.payload)
     switch (action.type){
         case InputsActionTypes.name:
             return { ...state, name: action.payload } ;
