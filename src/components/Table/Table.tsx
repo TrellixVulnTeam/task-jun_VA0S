@@ -1,17 +1,10 @@
 import React, { useState } from 'react';
 import Lines from "./Lines";
-import Filter from "../Filter";
+import Filter from "../Filter/Filter";
 import { useSearchedLines } from "../../hooks/useSortedTable";
-import Direction from "../direction/Direction";
+import Direction from "../Direction/Direction";
 import AddLines from "./addLines/AddLines";
-
-export interface ILines {
-    name: string;
-    salary: number;
-    bonus: number;
-    supervisor: string;
-    id?: number;
-}
+import { ILines } from "../Types/types";
 
 const Table = () => {
     const [lines, setLines] = useState<ILines[]>([

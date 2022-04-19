@@ -1,12 +1,8 @@
-import React, { Dispatch, FC, SetStateAction, useReducer } from 'react';
-import { inputs } from "../../../utils/consts/consts";
-import { ILines } from "../Table";
+import React, { FC, useReducer } from 'react';
 import { initialState, reducer } from "../../../store/inputsReducer";
-import {InitialProps, InputsAction} from "../../../store/types";
-
-interface InputsProps {
-    setInput: Dispatch<SetStateAction<ILines>>
-}
+import { InitialProps, InputsAction } from "../../../store/types";
+import { InputsProps } from "../../Types/types";
+import { inputs } from "../../../constants/inputs";
 
 const InputAdded: FC <InputsProps> = ({ setInput }) => {
     const [value, dispatch] = useReducer<React.Reducer<InitialProps, InputsAction>>(reducer, initialState);

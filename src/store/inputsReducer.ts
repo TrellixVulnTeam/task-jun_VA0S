@@ -1,13 +1,11 @@
 import { InitialProps, InputsAction } from "./types";
 import { InputsActionTypes } from "./types";
 
-
 export const initialState:InitialProps = {
     name: '',
     salary: 0,
     bonus: 0,
     supervisor: '',
-    isNumber: null,
 }
 
 export function reducer(state: InitialProps, action: InputsAction): InitialProps{

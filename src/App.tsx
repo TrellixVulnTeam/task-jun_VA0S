@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.scss'
-import Table from "./components/table/Table";
+import Table from "./components/Table/Table";
 
 const App = () => {
     return (

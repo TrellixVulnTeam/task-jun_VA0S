@@ -1,11 +1,7 @@
 import React, { FC } from 'react';
-import MySelect from "./select/MySelect";
-import MyInput from "./input/MyInput";
-
-interface IPropsFilter{
-    filter: object;
-    setFilter: any; // Подправить
-}
+import MySelect from "../Select/MySelect";
+import MyInput from "../Input/MyInput";
+import { IPropsFilter } from "../Types/types";
 
 const Filter: FC <IPropsFilter> = ({ filter, setFilter }) => {
     return (

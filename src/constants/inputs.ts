@@ -1,4 +1,4 @@
-import { InputsActionTypes } from "../../store/types";
+import { InputsActionTypes } from "../store/types";
 
 export const inputs = [
     {text: "Имя", type: InputsActionTypes.name, isNumber: false, id: 1},

@@ -1,11 +1,5 @@
 import { useMemo } from "react";
-import { ILines } from "../components/table/Table";
-
-interface ISortedAndSearchedLines {
-    lines: ILines[];
-    sort: string;
-    query: string;
-}
+import { ISortedAndSearchedLines } from "../components/Types/types";
 
 export const useSortedLines = ( { lines, sort, query }: ISortedAndSearchedLines ) => {
     if (sort === 'desc') {

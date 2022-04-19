@@ -1,11 +1,8 @@
-import {sample} from "lodash";
-
 export interface InitialProps {
     name: string;
     salary: number;
     bonus: number;
     supervisor: string;
-    isNumber: boolean;
 }
 
 export enum InputsActionTypes {
