@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import Lines from "./Lines";
+import Lines from "../Lines/Lines";
 import Filter from "../Filter/Filter";
 import { useSearchedLines } from "../../hooks/useSortedTable";
-import Direction from "../Direction/Direction";
-import AddLines from "./addLines/AddLines";
-import { ILines } from "../Types/types";
+import AddLines from "../AddLines/AddLines";
+import { ILines } from "../../types/types";
+import styles from './table.module.scss';
 
 const Table = () => {
     const [lines, setLines] = useState<ILines[]>([
@@ -14,35 +14,30 @@ const Table = () => {
         {name: 'James A. Pentel', salary: 175, bonus: 25, supervisor: 'Annie', id: 4},
     ]);
 
-    const [filter, setFilter] = useState( { query: '', sort: '' } );
+    const [checkButton, setCheckButton] = useState<boolean>(false);
+    const [filter, setFilter] = useState<{query: string, sort: string}>( { query: '', sort: '' } );
     const { sort, query } = filter;
-
     const sortedAndSearchedLines = useSearchedLines({ lines, sort, query } );
 
     const addLines = (item:ILines) => {
         setLines((state) => [...state, item])
     }
 
-    const [checkButton, setCheckButton] = useState<boolean>(false);
     const showAddedTable = () => {
         setCheckButton((state) => !state)
     }
 
-
     return (
-        <div>
-            <div style={{display: 'flex'}}>
-                    <Lines
-                        lines={sortedAndSearchedLines}
-                    />
-                <div className="sorting-container">
-                    <Filter
-                        filter={filter}
-                        setFilter={setFilter}
-                    />
-                    <Direction sort={sort}/>
-                </div>
+        <div className={styles.wrapper}>
+            <div className={styles.sortingContainer}>
+                <Filter
+                    filter={filter}
+                    setFilter={setFilter}
+                />
             </div>
+            <Lines
+                lines={sortedAndSearchedLines}
+            />
             {checkButton
                 ? <AddLines addLines={addLines} hideTable={showAddedTable}/>
                 : <button type="submit" onClick={() => showAddedTable()}>Добавить поле</button>

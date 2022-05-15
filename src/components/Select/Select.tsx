@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+import React, { DetailedHTMLProps, FC, SelectHTMLAttributes } from 'react';
+import styles from './select.module.scss';
 
 interface IOptionsProps {
     title: string;
@@ -6,17 +7,20 @@ interface IOptionsProps {
     value: string;
 }
 
-interface ISelectProps {
+interface ISelectProps extends SelectProps{
     defaultValue: string;
     options: IOptionsProps[]
-    onChange: any; //ПОДПРАВИТЬ ТИПЫ
 }
 
-const MySelect: FC <ISelectProps> = ({ defaultValue, options, onChange }) => {
+type SelectProps = DetailedHTMLProps<SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>
+
+const Select: FC <ISelectProps> = ({ defaultValue, options, onChange, ...props }) => {
     return (
             <select
+                className={styles.select}
                 defaultValue={defaultValue}
-                onChange={(event:React.ChangeEvent<HTMLSelectElement>) => onChange(event.target.value)}
+                onChange={onChange}
+                {...props}
             >
                 <option disabled>{defaultValue}</option>
                 {options.map((option) => (
@@ -31,4 +35,4 @@ const MySelect: FC <ISelectProps> = ({ defaultValue, options, onChange }) => {
     );
 };
 
-export default MySelect;
+export default Select;

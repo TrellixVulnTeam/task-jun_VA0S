@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './direction.module.scss';
 
 interface IDirectionProps {
@@ -6,8 +6,6 @@ interface IDirectionProps {
 }
 
 const Direction = ({ sort }: IDirectionProps) => {
-    const [direction, setDirection] = useState<boolean>(true);
-
     return (
         <div
             className={sort === 'desc' ? styles.downArrow : styles.upArrow}
